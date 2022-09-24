@@ -132,20 +132,6 @@ async function createInitialPosts() {
   }
 }
 
-async function rebuildDB() {
-  try {
-    client.connect();
-
-    await dropTables();
-    await createTables();
-    await createInitialUsers();
-    await createInitialPosts();
-  } catch (error) {
-    console.log("Error during rebuildDB")
-    throw error;
-  }
-}
-
 async function createInitialTags() {
   try {
     console.log("Starting to create tags...");
@@ -169,7 +155,6 @@ async function createInitialTags() {
     throw error;
   }
 }
-
 async function rebuildDB() {
   try {
     client.connect();
@@ -178,7 +163,6 @@ async function rebuildDB() {
     await createTables();
     await createInitialUsers();
     await createInitialPosts();
-    await createInitialTags();
   } catch (error) {
     console.log("Error during rebuildDB")
     throw error;
